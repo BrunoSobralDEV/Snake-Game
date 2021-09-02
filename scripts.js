@@ -9,6 +9,8 @@ snake[0] = {
     y: 8 * box
 }
 
+let direction = "right";
+
 function criarBG() {
     context.fillStyle = "lightgreen"; //cor do Background
     context.fillRect(0, 0, 16 * box, 16 * box); //retângulo-x,y,altura,largura
@@ -22,5 +24,33 @@ function criarCobrinha() {
     }
 }
 
-criarBG();
-criarCobrinha();
+//atualizar o jogo de tempos em tempos pra que a cobrinha ande
+//passar todas as funções pra quando iniciar, criar o background e criar a cobrinha
+function iniciarJogo() {
+    criarBG();
+    criarCobrinha();  
+    
+    //ponto de partida
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    //por onde ela vai andar - -> aumenta <- diminui
+    if(direction == "right") snakeX += box;
+    if(direction == "left") snakeX -= box;
+    if(direction == "up") snakeY -= box;
+    if(direction == "down") snakeX += box;
+
+    //função pop retira o último elemento do array
+    snake.pop();
+
+    let newHead = {
+        x: snakeX,
+        y: snakeY
+    }
+
+    //unshift sempre acrescenta a frente
+    snake.unshift(newHead);
+}
+
+//100ms para iniciar e renovar o jogo
+let jogo = setInterval(iniciarJogo, 100);
