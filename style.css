@@ -1,10 +1,43 @@
+
 body{
-    height: 95vh;
-    width: 95;
+    color: rgb(44, 139, 44);
+    height: 95;
+}
+header{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: rgb(44, 139, 44);
+    background-color: salmon;
+}
+main{
+    display: flex;
+    justify-content: center;
+    background-color: royalblue;
+    
+}
+
+.snake{
+    padding: 10px 25px 0 0;
+}
+
+.rank{
+    background-color: red;
+    width: 35%;
+    height: 100px;
+    margin-top: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.titulo{
+    margin-right: 50px;
+    
+}
+
+.cronometro{
 
 }
