@@ -10,6 +10,11 @@ snake[0] = {
 }
 
 let direction = "right";
+let food = {
+    //criar nº aleatório pra aparecer em lugares distintos no mapa
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
 
 function criarBG() {
     context.fillStyle = "lightgreen"; //cor do Background
@@ -24,6 +29,11 @@ function criarCobrinha() {
     }
 }
 
+//criar comida
+function drawFood() {
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box);
+}
 //evento de escuta - as teclas direcionais
 document.addEventListener('keydown', update);
 
@@ -46,7 +56,8 @@ function iniciarJogo() {
 
     criarBG();
     criarCobrinha();  
-    
+    drawFood();
+
     //ponto de partida
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
